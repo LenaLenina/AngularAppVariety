@@ -24,6 +24,7 @@ import { NumberComponent } from './NumberModule/UI/Components/number/number.comp
 import { ProductAlertsComponent } from './ProductsModule/UI/Components/product-alerts/product-alerts.component';
 import { ConditionToNotifyPriceMore700 } from './ProductsModule/ApplicationCore/Services/condition-to-notify-price-more-700.service';
 import { IConditionToNotify } from './ProductsModule/ApplicationCore/Services.Abstractions/IConditionToNotify';
+import { ProductDetailsComponent } from './ProductsModule/UI/Components/product-details/product-details.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { IConditionToNotify } from './ProductsModule/ApplicationCore/Services.Ab
     AppComponent,
     ProductListComponent,
     NumberComponent,
-    ProductAlertsComponent
+    ProductAlertsComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
