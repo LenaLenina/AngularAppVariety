@@ -21,13 +21,17 @@ import { INumberRepository } from './NumberModule/ApplicationCore/Domain/Reposit
 import { NumberRepository } from './NumberModule/Infrastracture/Persistence/number-repository';
 import { ProductListComponent } from './ProductsModule/UI/Components/product-list-component/product-list.component';
 import { NumberComponent } from './NumberModule/UI/Components/number/number.component';
+import { ProductAlertsComponent } from './ProductsModule/UI/Components/product-alerts/product-alerts.component';
+import { ConditionToNotifyPriceMore700 } from './ProductsModule/ApplicationCore/Services/condition-to-notify-price-more-700.service';
+import { IConditionToNotify } from './ProductsModule/ApplicationCore/Services.Abstractions/IConditionToNotify';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
-    NumberComponent
+    NumberComponent,
+    ProductAlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { NumberComponent } from './NumberModule/UI/Components/number/number.comp
     {provide: INumberIsOdd, useClass: NumberIsOdd },
     {provide: INumberBeetween3And5, useClass: NumberBeetween3And5 },
 
-    {provide: INumberRepository, useClass: NumberRepository }
+    {provide: INumberRepository, useClass: NumberRepository },
+
+    {provide: IConditionToNotify, useClass: ConditionToNotifyPriceMore700 }
   ],
   bootstrap: [AppComponent]
 })
