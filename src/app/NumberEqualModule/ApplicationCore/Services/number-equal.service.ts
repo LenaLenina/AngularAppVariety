@@ -1,18 +1,13 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { INumberEqualService } from '../Services.Abstractions/INumberEqualService';
-import { INumberBeetween3And5 } from "../Services.Abstractions/INumberBeetween3And5";
-
 import { INumberEqualCondition } from "../Services.Abstractions/INumberEqualCondition";
-import { INumberIsOdd } from '../Services.Abstractions/INumberIsOdd';
+import { NUMBER_EQUAL_CONDITIONS } from 'src/app/InjectionTokens/NUMBER_EQUAL_CONDITIONS';
+
 
 @Injectable()
 export class NumberEqualService implements INumberEqualService{
 
-  private _conditions: INumberEqualCondition[];
-
-  constructor(private e1: INumberBeetween3And5, private e2: INumberIsOdd) { 
-    this._conditions = [e1, e2];
-  }
+  constructor(@Inject(NUMBER_EQUAL_CONDITIONS) private _conditions: INumberEqualCondition[]) { }
 
   public isEqual(number: number): boolean {
     
