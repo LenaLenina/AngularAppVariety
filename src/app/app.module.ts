@@ -25,6 +25,7 @@ import { ProductAlertsComponent } from './ProductsModule/UI/Components/product-a
 import { ConditionToNotifyPriceMore700 } from './ProductsModule/ApplicationCore/Services/condition-to-notify-price-more-700.service';
 import { IConditionToNotify } from './ProductsModule/ApplicationCore/Services.Abstractions/IConditionToNotify';
 import { ProductDetailsComponent } from './ProductsModule/UI/Components/product-details/product-details.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProductDetailsComponent } from './ProductsModule/UI/Components/product-
     ProductListComponent,
     NumberComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    TopBarComponent
   ],
   imports: [
     BrowserModule,
