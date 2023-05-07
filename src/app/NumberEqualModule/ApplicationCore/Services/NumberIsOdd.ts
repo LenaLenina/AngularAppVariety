@@ -1,4 +1,4 @@
-import { INumberIsOdd } from "../Services.Abstractions/INumberIsOdd";
+import { INumberIsOdd } from "../Services.Abstractions/EqualConditions/INumberIsOdd";
 
 
 export class NumberIsOdd implements INumberIsOdd {

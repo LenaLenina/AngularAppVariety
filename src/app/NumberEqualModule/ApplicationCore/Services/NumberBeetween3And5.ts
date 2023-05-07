@@ -1,4 +1,4 @@
-import { INumberBeetween3And5 } from "../Services.Abstractions/INumberBeetween3And5";
+import { INumberBeetween3And5 } from "../Services.Abstractions/EqualConditions/INumberBeetween3And5";
 
 
 export class NumberBeetween3And5 implements INumberBeetween3And5 {

@@ -2,15 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ShapesModule } from './shapes/shapes.module';
+import { AbcViewchildModule } from './abc-viewchild/abc-viewchild.module';
+
 import { AppComponent } from './app.component';
 import { ProductsRepository } from './ProductsModule/Infrastracture/Persistence/Repositories/products-repository';
 import { INumberEqualService } from './NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService';
-import { INumberBeetween3And5 } from "./NumberEqualModule/ApplicationCore/Services.Abstractions/INumberBeetween3And5";
+import { INumberBeetween3And5 } from "./NumberEqualModule/ApplicationCore/Services.Abstractions/EqualConditions/INumberBeetween3And5";
 import { NumberEqualService } from './NumberEqualModule/ApplicationCore/Services/number-equal.service';
 import { IDistinctArrayService } from './ArrayExtensions/Services.Abstractions/IDistinctService';
 import { DistinctArrayService } from './ArrayExtensions/Services/distinct-array.service';
-import { INumberIsEven } from './NumberEqualModule/ApplicationCore/Services.Abstractions/INumberIsEven';
-import { INumberIsOdd } from './NumberEqualModule/ApplicationCore/Services.Abstractions/INumberIsOdd';
+import { INumberIsEven } from './NumberEqualModule/ApplicationCore/Services.Abstractions/EqualConditions/INumberIsEven';
+import { INumberIsOdd } from './NumberEqualModule/ApplicationCore/Services.Abstractions/EqualConditions/INumberIsOdd';
 import { NumberIsEven } from './NumberEqualModule/ApplicationCore/Services/NumberIsEven';
 import { NumberIsOdd } from './NumberEqualModule/ApplicationCore/Services/NumberIsOdd';
 import { NumberBeetween3And5 } from './NumberEqualModule/ApplicationCore/Services/NumberBeetween3And5';
@@ -39,7 +42,9 @@ import { TopBarComponent } from './top-bar/top-bar.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ShapesModule,
+    AbcViewchildModule
   ],
   providers: 
   [
