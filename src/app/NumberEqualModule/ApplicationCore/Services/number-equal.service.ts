@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { INumberEqualService } from '../Services.Abstractions/INumberEqualService';
-import { INumberBeetween3And5 } from "../Services.Abstractions/INumberBeetween3And5";
+import { INumberBeetween3And5 } from "../Services.Abstractions/EqualConditions/INumberBeetween3And5";
 
-import { INumberEqualCondition } from "../Services.Abstractions/INumberEqualCondition";
-import { INumberIsOdd } from '../Services.Abstractions/INumberIsOdd';
+import { INumberEqualCondition } from "../Services.Abstractions/EqualConditions/INumberEqualCondition";
+import { INumberIsOdd } from '../Services.Abstractions/EqualConditions/INumberIsOdd';
 
 @Injectable()
 export class NumberEqualService implements INumberEqualService{

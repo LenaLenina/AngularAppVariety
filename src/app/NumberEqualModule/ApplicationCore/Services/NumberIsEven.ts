@@ -1,4 +1,4 @@
-import { INumberIsEven } from "../Services.Abstractions/INumberIsEven";
+import { INumberIsEven } from "../Services.Abstractions/EqualConditions/INumberIsEven";
 
 export class NumberIsEven implements INumberIsEven {
     public isEqual(number: number): boolean {
