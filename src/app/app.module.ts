@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ShapesModule } from './shapes/shapes.module';
 
 import { AppRoutingModule } from './app-routing.module';
+import { ShapesModule } from './shapes/shapes.module';
+import { AbcViewchildModule } from './abc-viewchild/abc-viewchild.module';
+
 import { AppComponent } from './app.component';
 import { ProductsRepository } from './ProductsModule/Infrastracture/Persistence/Repositories/products-repository';
 import { INumberEqualService } from './NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService';
@@ -41,7 +43,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ShapesModule
+    ShapesModule,
+    AbcViewchildModule
   ],
   providers: 
   [
