@@ -9,8 +9,13 @@ import { ISharedService } from 'src/app/component-interact-through-service/appli
 })
 export class ComponentTwoComponent {
 
-  isVisible$ = this.sharedService.isVisibleSource.asObservable();
-  
   constructor(private sharedService: ISharedService) { }
 
+  get currentVisible(): boolean {
+    return this.sharedService.GetVisible();
+  }
+
+  onClick():void {
+    this.sharedService.ChangeVisible();
+  }
 }

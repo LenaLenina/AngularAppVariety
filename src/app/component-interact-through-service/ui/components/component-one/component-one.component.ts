@@ -9,13 +9,14 @@ import { ISharedService } from 'src/app/component-interact-through-service/appli
 })
 export class ComponentOneComponent {
 
-  currentVisible = false;
-
   constructor(private sharedService: ISharedService) { }
 
+  get currentVisible(): boolean {
+    return this.sharedService.GetVisible();
+  }
+
   toggleVisibility() {
-    this.currentVisible = !this.currentVisible;
-    this.sharedService.isVisibleSource.next(this.currentVisible);
+    this.sharedService.ChangeVisible();
   }
   
 }

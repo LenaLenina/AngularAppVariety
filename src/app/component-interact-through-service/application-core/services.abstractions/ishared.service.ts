@@ -1,5 +1,6 @@
-import { BehaviorSubject } from "rxjs";
+export abstract class ISharedService {
 
-export abstract class ISharedService{
-    abstract isVisibleSource: BehaviorSubject<boolean>;
+    abstract GetVisible(): boolean;
+
+    abstract ChangeVisible(): void;
 }

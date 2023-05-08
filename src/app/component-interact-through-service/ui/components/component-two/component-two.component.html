@@ -1,3 +1,5 @@
-<div>
-    <div *ngIf="isVisible$ | async">Visible!</div>
+<div *ngIf="currentVisible">
+    <div>
+        <button (click)="onClick()">Hide</button>
+    </div>
 </div>

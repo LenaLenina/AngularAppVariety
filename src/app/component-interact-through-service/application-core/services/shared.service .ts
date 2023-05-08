@@ -1,6 +1,15 @@
-import { BehaviorSubject } from 'rxjs';
 import { ISharedService } from '../services.abstractions/ishared.service';
 
 export class SharedService implements ISharedService {
-  isVisibleSource: BehaviorSubject<boolean> = new BehaviorSubject(false);
+
+  private _currentVisible: boolean = false;
+
+  public GetVisible(): boolean {
+    return this._currentVisible;
+  }
+
+  public ChangeVisible(): void {
+    this._currentVisible = !this._currentVisible;
+  }
+
 }
