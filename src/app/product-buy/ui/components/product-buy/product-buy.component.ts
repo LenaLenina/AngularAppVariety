@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IProductBuyService } from 'src/app/component-interact-through-service/application-core/services.abstractions/IProductBuyService';
+import { IProductBuyService } from 'src/app/product-buy/application-core/services.abstractions/IProductBuyService';
 
 @Component({
   selector: 'app-product-buy',

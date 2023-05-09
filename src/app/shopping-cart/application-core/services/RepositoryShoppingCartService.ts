@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IShoppingCartRepository } from "../domain/repositories/IShoppingCartRepository";
+import { IShoppingCartRepository } from "../../../shopping-cart/application-core/domain/repositories/IShoppingCartRepository";
 import { IRepositoryShoppingCartService } from "../services.abstractions/IRepositoryShoppingCartService";
 
 @Injectable()

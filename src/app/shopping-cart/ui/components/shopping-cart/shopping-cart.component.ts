@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IViewShoppingCartService } from "src/app/component-interact-through-service/application-core/services.abstractions/IViewShoppingCartService";
+import { IViewShoppingCartService } from "src/app/shopping-cart/application-core/services.abstractions/IViewShoppingCartService";
 
 @Component({
   selector: 'app-shopping-cart',

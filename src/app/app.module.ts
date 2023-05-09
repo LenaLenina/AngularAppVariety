@@ -29,7 +29,8 @@ import { ConditionToNotifyPriceMore700 } from './ProductsModule/ApplicationCore/
 import { IConditionToNotify } from './ProductsModule/ApplicationCore/Services.Abstractions/IConditionToNotify';
 import { ProductDetailsComponent } from './ProductsModule/UI/Components/product-details/product-details.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ComponentInteractThroughServiceModule } from './component-interact-through-service/component-interact-through-service.module';
+import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
+import { ProductBuyModule } from './product-buy/product-buy.module';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ComponentInteractThroughServiceModule } from './component-interact-thro
     AppRoutingModule,
     ShapesModule,
     AbcViewchildModule,
-    ComponentInteractThroughServiceModule
+    ProductBuyModule,
+    ShoppingCartModule
   ],
   providers: 
   [

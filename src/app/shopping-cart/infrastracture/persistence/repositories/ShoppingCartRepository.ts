@@ -1,5 +1,5 @@
-import { CartEntity } from "src/app/component-interact-through-service/application-core/domain/entities/CartEntity";
-import { IShoppingCartRepository } from "src/app/component-interact-through-service/application-core/domain/repositories/IShoppingCartRepository";
+import { CartEntity } from "src/app/shopping-cart/application-core/domain/entities/CartEntity";
+import { IShoppingCartRepository } from "src/app/shopping-cart/application-core/domain/repositories/IShoppingCartRepository";
 
 
 export class ShoppingCartRepository implements IShoppingCartRepository {
