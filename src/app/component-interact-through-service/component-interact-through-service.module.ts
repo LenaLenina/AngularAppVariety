@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IShoppingCartController } from './ui/controllers.abstractions/ishopping-cart-controller';
-import { ShoppingCartController } from './ui/controllers/shopping-cart-controller ';
+import { IShoppingCartController } from './Presentation/controllers.abstractions/IShoppingCartController';
+import { ShoppingCartController } from './Presentation/controllers/ShoppingCartController';
 import { ShoppingCartComponent } from './ui/components/shopping-cart/shopping-cart.component';
 import { ProductBuyComponent } from './ui/components/product-buy/product-buy.component';
-import { IProductBuyService } from './application-core/services.abstractions/i-poduct-buy-service';
-import { ShoppingCartProdcutBuyService } from './application-core/services/product-buy.service';
-import { ShoppingCartService } from './application-core/services/shopping-cart.service';
-import { IShoppingCartService } from './application-core/services.abstractions/i-shopping-cart-service';
+import { IProductBuyService } from './application-core/services.abstractions/IProductBuyService';
+import { ShoppingCartProdcutBuyService } from './application-core/services/ShoppingCartProdcutBuyService';
+import { ViewShoppingCartService } from './application-core/services/ViewShoppingCartService';
+import { IViewShoppingCartService } from "./application-core/services.abstractions/IViewShoppingCartService";
+import { ShoppingCartRepository } from './Infrastracture/persistence/repositories/ShoppingCartRepository';
+import { IShoppingCartRepository } from './application-core/domain/repositories/IShoppingCartRepository';
+import { RepositoryShoppingCartService } from './application-core/services/RepositoryShoppingCartService';
+import { IRepositoryShoppingCartService } from "./application-core/services.abstractions/IRepositoryShoppingCartService";
 
 
 @NgModule({
@@ -21,8 +25,10 @@ import { IShoppingCartService } from './application-core/services.abstractions/i
   exports: [ ProductBuyComponent, ShoppingCartComponent ],
   providers: [
     { provide: IProductBuyService, useClass: ShoppingCartProdcutBuyService },
-    { provide: IShoppingCartService, useClass: ShoppingCartService },
-    { provide: IShoppingCartController, useClass: ShoppingCartController }
+    { provide: IViewShoppingCartService, useClass: ViewShoppingCartService },
+    { provide: IShoppingCartController, useClass: ShoppingCartController },
+    { provide: IShoppingCartRepository, useClass: ShoppingCartRepository },
+    { provide: IRepositoryShoppingCartService, useClass: RepositoryShoppingCartService }
   ]
 })
 export class ComponentInteractThroughServiceModule { }

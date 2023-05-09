@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { IProductBuyService } from "../services.abstractions/i-poduct-buy-service";
-import { IShoppingCartController } from "../../ui/controllers.abstractions/ishopping-cart-controller";
+import { IProductBuyService } from "../services.abstractions/IProductBuyService";
+import { IShoppingCartController } from "../../Presentation/controllers.abstractions/IShoppingCartController";
 
 @Injectable()
 export class ShoppingCartProdcutBuyService implements IProductBuyService{

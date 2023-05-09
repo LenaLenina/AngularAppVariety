@@ -1,6 +1,6 @@
-import { IShoppingCartService } from "../services.abstractions/i-shopping-cart-service";
+import { IViewShoppingCartService } from "../services.abstractions/IViewShoppingCartService";
 
-export class ShoppingCartService implements IShoppingCartService {
+export class ViewShoppingCartService implements IViewShoppingCartService {
 
     private _isBuy: boolean = false;
 
@@ -16,14 +16,6 @@ export class ShoppingCartService implements IShoppingCartService {
     
     public cancel(): void {
         this._isBuy = false;
-    }
-
-    public add(): void {
-        throw new Error("Method not implemented.");
-    }
-
-    public sub(): void {
-        throw new Error("Method not implemented.");
     }
 
     public isBuy(): boolean {

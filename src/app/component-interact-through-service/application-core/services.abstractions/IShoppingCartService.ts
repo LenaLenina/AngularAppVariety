@@ -4,9 +4,5 @@ export abstract class IShoppingCartService {
 
     abstract cancel(): void;
 
-    abstract add(): void;
-
-    abstract sub(): void; 
-
     abstract isBuy(): boolean;
 }
