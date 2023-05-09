@@ -12,6 +12,8 @@ import { ShoppingCartRepository } from './Infrastracture/persistence/repositorie
 import { IShoppingCartRepository } from './application-core/domain/repositories/IShoppingCartRepository';
 import { RepositoryShoppingCartService } from './application-core/services/RepositoryShoppingCartService';
 import { IRepositoryShoppingCartService } from "./application-core/services.abstractions/IRepositoryShoppingCartService";
+import { ShoppingCartController2 } from './Presentation/controllers/ShoppingCartController2';
+import { ShoppingCartController3 } from './Presentation/controllers/ShoppingCartController3';
 
 
 @NgModule({
@@ -26,7 +28,7 @@ import { IRepositoryShoppingCartService } from "./application-core/services.abst
   providers: [
     { provide: IProductBuyService, useClass: ShoppingCartProdcutBuyService },
     { provide: IViewShoppingCartService, useClass: ViewShoppingCartService },
-    { provide: IShoppingCartController, useClass: ShoppingCartController },
+    { provide: IShoppingCartController, useClass: ShoppingCartController2 },
     { provide: IShoppingCartRepository, useClass: ShoppingCartRepository },
     { provide: IRepositoryShoppingCartService, useClass: RepositoryShoppingCartService }
   ]
