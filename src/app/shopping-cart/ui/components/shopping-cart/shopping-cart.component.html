@@ -1,4 +1,4 @@
-<div *ngIf="isBuy">
+<div *ngIf="isBuy$ | async">
     <div>
         <button (click)="cancel()">Notification</button>
     </div>

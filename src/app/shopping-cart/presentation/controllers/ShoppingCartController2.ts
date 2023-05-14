@@ -3,6 +3,8 @@ import { IShoppingCartController } from '../../../shopping-cart/presentation/con
 import { IShoppingCartService } from '../../application-core/services.abstractions/IShoppingCartService';
 import { IViewShoppingCartService } from "../../../shopping-cart/application-core/services.abstractions/IViewShoppingCartService";
 import { IRepositoryShoppingCartService } from '../../application-core/services.abstractions/IRepositoryShoppingCartService';
+import { Observable } from 'rxjs';
+import { IShoppingCartState } from '../../application-core/domain/states/IShoppingCartState';
 
 
 @Injectable()
@@ -10,12 +12,22 @@ export class ShoppingCartController2 implements IShoppingCartController {
 
   private _shoppingCartServices: IShoppingCartService[];
 
-  constructor(view: IViewShoppingCartService, private _repository: IRepositoryShoppingCartService) {
-    this._shoppingCartServices = [view, _repository];
+  constructor(private _view: IViewShoppingCartService, 
+              private _repository: IRepositoryShoppingCartService,
+              private _shoppingCartState: IShoppingCartState) 
+  {
+    this._shoppingCartServices = [_view, _repository];
+  }
+
+  public getIsBuyObservable(): Observable<boolean> {
+    return this._shoppingCartState.isBuy$.asObservable();
   }
 
   public isBuy(): boolean {
-    return this._repository.isBuy();
+    if(this._repository.isBuy() == false) 
+      return false;
+
+    return true;
   }
 
   public buy(): void {

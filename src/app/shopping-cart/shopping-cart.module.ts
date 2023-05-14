@@ -9,6 +9,8 @@ import { IRepositoryShoppingCartService } from './application-core/services.abst
 import { RepositoryShoppingCartService } from './application-core/services/RepositoryShoppingCartService';
 import { IShoppingCartRepository } from './application-core/domain/repositories/IShoppingCartRepository';
 import { ShoppingCartRepository } from './infrastracture/persistence/repositories/ShoppingCartRepository';
+import { IShoppingCartState } from './application-core/domain/states/IShoppingCartState';
+import { ShoppingCartState } from './infrastracture/persistence/states/ShoppingCartState';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { ShoppingCartRepository } from './infrastracture/persistence/repositorie
     { provide: IViewShoppingCartService, useClass: ViewShoppingCartService },
     { provide: IRepositoryShoppingCartService, useClass: RepositoryShoppingCartService },
 
-    { provide: IShoppingCartRepository, useClass: ShoppingCartRepository }
+    { provide: IShoppingCartRepository, useClass: ShoppingCartRepository },
+    
+    { provide: IShoppingCartState, useClass: ShoppingCartState }
   ]
 })
 export class ShoppingCartModule { }

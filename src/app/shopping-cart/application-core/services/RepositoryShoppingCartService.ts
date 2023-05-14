@@ -27,5 +27,4 @@ export class RepositoryShoppingCartService implements IRepositoryShoppingCartSer
 
         return false;
     }
-    
 }
