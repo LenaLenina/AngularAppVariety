@@ -25,6 +25,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ShoppingCartModule } from './shopping-cart/shopping-cart.module';
 import { ProductBuyModule } from './product-buy/product-buy.module';
 import { ProductsModule } from './products/products.module';
+import { ContentChildrenByServiceModule } from './content-children-by-service/content-children-by-service.module';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ProductsModule } from './products/products.module';
     AbcViewchildModule,
     ProductBuyModule,
     ShoppingCartModule,
-    ProductsModule
+    ProductsModule,
+    ContentChildrenByServiceModule
   ],
   providers: 
   [
