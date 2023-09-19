@@ -1,11 +1,9 @@
 import { ChangeDetectorRef, ElementRef, Injectable, QueryList } from '@angular/core';
+import { ILastVisibleIndexService } from '../services.abstractions/ILastVisibleIndexService';
 
 const MORE_BUTTON_WIDTH = 65;
 
-@Injectable({
-  providedIn: 'root'
-})
-export class LastVisibleIndexService {
+export class LastVisibleIndexService implements ILastVisibleIndexService {
 
   tabElements!: QueryList<ElementRef<HTMLElement>>;
   elementRef!: ElementRef<HTMLElement>;
@@ -62,7 +60,7 @@ export class LastVisibleIndexService {
     this.cdr.detectChanges();
   }
 
-  onWindowResize() {
+  public onWindowResize() {
     this.lastVisibleIndex = this.getLastVisibleIndex();
   }
 }

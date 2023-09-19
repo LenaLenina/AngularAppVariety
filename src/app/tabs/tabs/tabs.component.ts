@@ -10,9 +10,10 @@ import {
   HostListener,
   AfterViewChecked,
   ChangeDetectorRef,
+  AfterViewInit,
 } from '@angular/core';
 
-import { LastVisibleIndexService } from '../services/last-visible-index.service';
+import { ILastVisibleIndexService } from '../core/services.abstractions/ILastVisibleIndexService';
 
 @Component({
   selector: 'app-tabs',
@@ -20,7 +21,7 @@ import { LastVisibleIndexService } from '../services/last-visible-index.service'
   styleUrls: ['./tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TabsComponent implements AfterViewChecked {
+export class TabsComponent implements AfterViewInit, AfterViewChecked {
   @Input()
   tabs: readonly string[] = [];
 
@@ -31,7 +32,7 @@ export class TabsComponent implements AfterViewChecked {
   readonly tabElements: QueryList<ElementRef<HTMLElement>> = new QueryList();
 
   constructor(
-    public readonly _lastVisibleIndexService: LastVisibleIndexService,
+    public readonly _lastVisibleIndexService: ILastVisibleIndexService,
     private readonly elementRef: ElementRef<HTMLElement>,
     private readonly cdr: ChangeDetectorRef,
   ) {
@@ -50,5 +51,13 @@ export class TabsComponent implements AfterViewChecked {
   @HostListener('window:resize')
   onResize() {
     this._lastVisibleIndexService.onWindowResize();
+  }
+
+  isIndexMoreThanLastVisibleIndex(index: number) {
+    return this._lastVisibleIndexService.isIndexMoreThanLastVisibleIndex(index);
+  }
+
+  lastVisibleIndexLessThanTabsLength(): boolean {
+    return this._lastVisibleIndexService.lastVisibleIndexLessThanTabsLength();
   }
 }
