@@ -1,4 +1,6 @@
-import { ElementRef, Injectable, QueryList } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, Injectable, QueryList } from '@angular/core';
+
+const MORE_BUTTON_WIDTH = 65;
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,10 @@ export class LastVisibleIndexService {
 
   tabElements!: QueryList<ElementRef<HTMLElement>>;
   elementRef!: ElementRef<HTMLElement>;
-  moreButtonWidth!: number;
+  cdr!: ChangeDetectorRef;
+  moreButtonWidth: number = MORE_BUTTON_WIDTH;
+
+  lastVisibleIndex = Infinity;
   
   public getLastVisibleIndex(
     
@@ -33,5 +38,31 @@ export class LastVisibleIndexService {
     }
 
     return Infinity;
+  }
+
+  public isIndexMoreThanLastVisibleIndex(index: number): boolean {
+    console.log("isIndexMoreThanLastIndex");
+    return index > this.lastVisibleIndex;
+  }
+
+  public lastVisibleIndexLessThanTabsLength(): boolean {
+    if(!this.tabElements) return false;
+
+    return this.lastVisibleIndex < this.tabElements.length;
+  }
+
+  public onNgAfterViewChecked() {
+    const index = this.getLastVisibleIndex();
+
+    if (index === this.lastVisibleIndex) {
+      return;
+    }
+
+    this.lastVisibleIndex = index;
+    this.cdr.detectChanges();
+  }
+
+  onWindowResize() {
+    this.lastVisibleIndex = this.getLastVisibleIndex();
   }
 }

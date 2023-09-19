@@ -14,8 +14,6 @@ import {
 
 import { LastVisibleIndexService } from '../services/last-visible-index.service';
 
-const MORE_BUTTON_WIDTH = 65;
-
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.component.html',
@@ -32,36 +30,25 @@ export class TabsComponent implements AfterViewChecked {
   @ViewChildren('tab')
   readonly tabElements: QueryList<ElementRef<HTMLElement>> = new QueryList();
 
-  lastVisibleIndex = Infinity;
-
   constructor(
+    public readonly _lastVisibleIndexService: LastVisibleIndexService,
     private readonly elementRef: ElementRef<HTMLElement>,
     private readonly cdr: ChangeDetectorRef,
-    private readonly _lastVisibleIndexService: LastVisibleIndexService
-  ) {}
+  ) {
+    this._lastVisibleIndexService.elementRef = this.elementRef;
+    this._lastVisibleIndexService.cdr = this.cdr;
+  }
+
+  ngAfterViewInit() {
+    this._lastVisibleIndexService.tabElements = this.tabElements;
+  }
 
   ngAfterViewChecked() {
-    this._lastVisibleIndexService.tabElements = this.tabElements;
-    this._lastVisibleIndexService.elementRef = this.elementRef;
-    this._lastVisibleIndexService.moreButtonWidth = MORE_BUTTON_WIDTH;
-
-    const index = this._lastVisibleIndexService.getLastVisibleIndex();
-
-    if (index === this.lastVisibleIndex) {
-      return;
-    }
-
-    this.lastVisibleIndex = index;
-    this.cdr.detectChanges();
+    this._lastVisibleIndexService.onNgAfterViewChecked();
   }
 
   @HostListener('window:resize')
   onResize() {
-    this.lastVisibleIndex = this._lastVisibleIndexService.getLastVisibleIndex();
-  }
-
-  public isIndexMoreThanLastVisibleIndex(index: number): boolean {
-    console.log("isIndexMoreThanLastIndex");
-    return index > this.lastVisibleIndex;
+    this._lastVisibleIndexService.onWindowResize();
   }
 }
