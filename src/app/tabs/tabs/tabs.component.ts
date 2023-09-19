@@ -12,6 +12,8 @@ import {
   ChangeDetectorRef,
 } from '@angular/core';
 
+import { LastVisibleIndexService } from '../services/last-visible-index.service';
+
 const MORE_BUTTON_WIDTH = 65;
 
 @Component({
@@ -34,11 +36,16 @@ export class TabsComponent implements AfterViewChecked {
 
   constructor(
     private readonly elementRef: ElementRef<HTMLElement>,
-    private readonly cdr: ChangeDetectorRef
+    private readonly cdr: ChangeDetectorRef,
+    private readonly _lastVisibleIndexService: LastVisibleIndexService
   ) {}
 
   ngAfterViewChecked() {
-    const index = this.getLastVisibleIndex();
+    this._lastVisibleIndexService.tabElements = this.tabElements;
+    this._lastVisibleIndexService.elementRef = this.elementRef;
+    this._lastVisibleIndexService.moreButtonWidth = MORE_BUTTON_WIDTH;
+
+    const index = this._lastVisibleIndexService.getLastVisibleIndex();
 
     if (index === this.lastVisibleIndex) {
       return;
@@ -50,27 +57,11 @@ export class TabsComponent implements AfterViewChecked {
 
   @HostListener('window:resize')
   onResize() {
-    this.lastVisibleIndex = this.getLastVisibleIndex();
+    this.lastVisibleIndex = this._lastVisibleIndexService.getLastVisibleIndex();
   }
 
-  private getLastVisibleIndex(): number {
-    const tabs = this.tabElements.map((tab) => tab.nativeElement);
-    const { clientWidth } = this.elementRef.nativeElement;
-    const width = clientWidth - MORE_BUTTON_WIDTH;
-
-    let accumulatedWidth = 0;
-    let lastVisibleIndex = 0;
-
-    for (let index = 0; index < tabs.length; index++) {
-      accumulatedWidth += tabs[index].scrollWidth;
-
-      if (accumulatedWidth >= width) {
-        return lastVisibleIndex;
-      }
-
-      lastVisibleIndex = index;
-    }
-
-    return Infinity;
+  public isIndexMoreThanLastVisibleIndex(index: number): boolean {
+    console.log("isIndexMoreThanLastIndex");
+    return index > this.lastVisibleIndex;
   }
 }

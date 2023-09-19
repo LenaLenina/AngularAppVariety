@@ -3,7 +3,7 @@
   #tab
   type="button"
   class="tab"
-  [class.tab_hidden]="index > lastVisibleIndex"
+  [class.tab_hidden]="isIndexMoreThanLastVisibleIndex(index)"
   (click)="selectedTab.emit(tab)"
 >
   <span class="wrapper">{{tab}}</span>
@@ -19,7 +19,7 @@
   <div class="dropdown">
     <ng-container *ngFor="let tab of tabs; let index = index">
       <button 
-        *ngIf="index > lastVisibleIndex"
+        *ngIf="isIndexMoreThanLastVisibleIndex(index)"
         type="button"
         class="item"
         (click)="selectedTab.emit(tab)"
