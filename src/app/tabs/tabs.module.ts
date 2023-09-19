@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabsComponent } from './tabs/tabs.component';
+import { ViewComponent } from './view/view.component';
 
 
 
 @NgModule({
   declarations: [
-    TabsComponent
+    TabsComponent,
+    ViewComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    TabsComponent
+    ViewComponent
   ]
 })
 export class TabsModule { }
