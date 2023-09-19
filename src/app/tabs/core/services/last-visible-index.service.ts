@@ -11,28 +11,38 @@ export class LastVisibleIndexService implements ILastVisibleIndexService {
   moreButtonWidth: number = MORE_BUTTON_WIDTH;
 
   lastVisibleIndex = Infinity;
-  
+
   public getLastVisibleIndex(): number {
+    const tabs = this.getTabsArray();
+    const containerWidth = this.getContainerWidth();
+  
+    return this.calculateLastVisibleIndex(tabs, containerWidth);
+  }
 
-    if (!this.tabElements || !this.elementRef || !this.elementRef.nativeElement) return Infinity;
+  private getTabsArray(): HTMLElement[] {
+    if (!this.tabElements) return [];
+    return this.tabElements.map((tab) => tab.nativeElement);
+  }
 
-    const tabs = this.tabElements.map((tab) => tab.nativeElement);
-    const { clientWidth } = this.elementRef.nativeElement;
-    const width = clientWidth - this.moreButtonWidth;
+  private getContainerWidth(): number {
+    if (!this.elementRef || !this.elementRef.nativeElement) return 0;
+    return this.elementRef.nativeElement.clientWidth - this.moreButtonWidth;
+  }
 
+  private calculateLastVisibleIndex(tabs: HTMLElement[], containerWidth: number): number {
     let accumulatedWidth = 0;
     let lastVisibleIndex = 0;
-
+  
     for (let index = 0; index < tabs.length; index++) {
       accumulatedWidth += tabs[index].scrollWidth;
-
-      if (accumulatedWidth >= width) return lastVisibleIndex;
-
+  
+      if (accumulatedWidth >= containerWidth) return lastVisibleIndex;
+  
       lastVisibleIndex = index;
     }
-
+  
     return Infinity;
-  }
+  }  
 
   public isIndexMoreThanLastVisibleIndex(index: number): boolean {
     return index > this.lastVisibleIndex;
