@@ -4,7 +4,7 @@
   type="button"
   class="tab"
   [class.tab_hidden]="isIndexMoreThanLastVisibleIndex(index)"
-  (click)="selectedTab.emit(tab)"
+  (click)="onSelectedTab(tab)"
 >
   <span class="wrapper">{{tab}}</span>
 </button>
@@ -22,7 +22,7 @@
         *ngIf="isIndexMoreThanLastVisibleIndex(index)"
         type="button"
         class="item"
-        (click)="selectedTab.emit(tab)"
+        (click)="onSelectedTab(tab)"
       >
         {{tab}}
       </button>

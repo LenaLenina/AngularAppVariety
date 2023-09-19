@@ -60,4 +60,8 @@ export class TabsComponent implements AfterViewInit, AfterViewChecked {
   lastVisibleIndexLessThanTabsLength(): boolean {
     return this._lastVisibleIndexService.lastVisibleIndexLessThanTabsLength();
   }
+
+  onSelectedTab(tab: string) {
+    this.selectedTab.emit(tab);
+  }
 }
