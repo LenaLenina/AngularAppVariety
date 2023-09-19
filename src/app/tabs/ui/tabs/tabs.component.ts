@@ -40,20 +40,20 @@ export class TabsComponent implements AfterViewInit, AfterViewChecked {
     this._lastVisibleIndexService.cdr = this.cdr;
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this._lastVisibleIndexService.tabElements = this.tabElements;
   }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     this._lastVisibleIndexService.onNgAfterViewChecked();
   }
 
   @HostListener('window:resize')
-  onResize() {
+  onResize(): void {
     this._lastVisibleIndexService.onWindowResize();
   }
 
-  isIndexMoreThanLastVisibleIndex(index: number) {
+  isIndexMoreThanLastVisibleIndex(index: number): boolean {
     return this._lastVisibleIndexService.isIndexMoreThanLastVisibleIndex(index);
   }
 
@@ -61,7 +61,7 @@ export class TabsComponent implements AfterViewInit, AfterViewChecked {
     return this._lastVisibleIndexService.lastVisibleIndexLessThanTabsLength();
   }
 
-  onSelectedTab(tab: string) {
+  onSelectedTab(tab: string): void {
     this.selectedTab.emit(tab);
   }
 }

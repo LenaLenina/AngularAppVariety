@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ElementRef, Injectable, QueryList } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, QueryList } from '@angular/core';
 import { ILastVisibleIndexService } from '../services.abstractions/ILastVisibleIndexService';
 
 const MORE_BUTTON_WIDTH = 65;
@@ -12,9 +12,7 @@ export class LastVisibleIndexService implements ILastVisibleIndexService {
 
   lastVisibleIndex = Infinity;
   
-  public getLastVisibleIndex(
-    
-    ): number {
+  public getLastVisibleIndex(): number {
 
     if (!this.tabElements || !this.elementRef || !this.elementRef.nativeElement) return Infinity;
 
@@ -28,9 +26,7 @@ export class LastVisibleIndexService implements ILastVisibleIndexService {
     for (let index = 0; index < tabs.length; index++) {
       accumulatedWidth += tabs[index].scrollWidth;
 
-      if (accumulatedWidth >= width) {
-        return lastVisibleIndex;
-      }
+      if (accumulatedWidth >= width) return lastVisibleIndex;
 
       lastVisibleIndex = index;
     }
@@ -39,7 +35,6 @@ export class LastVisibleIndexService implements ILastVisibleIndexService {
   }
 
   public isIndexMoreThanLastVisibleIndex(index: number): boolean {
-    console.log("isIndexMoreThanLastIndex");
     return index > this.lastVisibleIndex;
   }
 
@@ -49,18 +44,16 @@ export class LastVisibleIndexService implements ILastVisibleIndexService {
     return this.lastVisibleIndex < this.tabElements.length;
   }
 
-  public onNgAfterViewChecked() {
+  public onNgAfterViewChecked(): void {
     const index = this.getLastVisibleIndex();
 
-    if (index === this.lastVisibleIndex) {
-      return;
-    }
+    if (index === this.lastVisibleIndex) return;
 
     this.lastVisibleIndex = index;
     this.cdr.detectChanges();
   }
 
-  public onWindowResize() {
+  public onWindowResize(): void {
     this.lastVisibleIndex = this.getLastVisibleIndex();
   }
 }
