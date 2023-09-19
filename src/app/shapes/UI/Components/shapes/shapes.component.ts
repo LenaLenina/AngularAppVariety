@@ -10,6 +10,7 @@ import { IShape } from '../../Components.Abstractions/IShape';
 export class ShapesComponent implements AfterViewInit {
 
   @ViewChildren('shape') public shapes!: QueryList<IShape>;
+  // @ViewChildren(IShape) public shapes!: QueryList<IShape>; так не работает
 
   ngAfterViewInit() {
     console.log(this.shapes.length);
