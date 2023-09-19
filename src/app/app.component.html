@@ -7,3 +7,7 @@
 
 <app-shapes></app-shapes>
 <!-- <app-abc></app-abc> -->
+<app-tabs [tabs]="tabs" (selectedTab)="onSelected($event)"></app-tabs>
+<main>
+    {{selected}}
+</main>

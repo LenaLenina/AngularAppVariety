@@ -1,0 +1,31 @@
+<button 
+  *ngFor="let tab of tabs; let index = index"
+  #tab
+  type="button"
+  class="tab"
+  [class.tab_hidden]="index > lastVisibleIndex"
+  (click)="selectedTab.emit(tab)"
+>
+  <span class="wrapper">{{tab}}</span>
+</button>
+<div class="more">
+  <button
+    *ngIf="lastVisibleIndex < tabs.length"
+    type="button"
+    class="tab"
+  >
+    <span class="wrapper">More</span>
+  </button>
+  <div class="dropdown">
+    <ng-container *ngFor="let tab of tabs; let index = index">
+      <button 
+        *ngIf="index > lastVisibleIndex"
+        type="button"
+        class="item"
+        (click)="selectedTab.emit(tab)"
+      >
+        {{tab}}
+      </button>
+    </ng-container>
+  </div>
+</div>
