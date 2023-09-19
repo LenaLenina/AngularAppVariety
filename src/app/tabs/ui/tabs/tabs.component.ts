@@ -13,7 +13,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 
-import { ILastVisibleIndexService } from '../core/services.abstractions/ILastVisibleIndexService';
+import { ILastVisibleIndexService } from '../../core/services.abstractions/ILastVisibleIndexService';
 
 @Component({
   selector: 'app-tabs',
