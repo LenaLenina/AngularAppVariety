@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { LayeredLibComponent } from './layered-lib.component';
+import { LayeredLibAPresentationComponent } from './infrastracture/presentation/layered-lib-apresentation/layered-lib-apresentation.component';
 
 
 
 @NgModule({
   declarations: [
-    LayeredLibComponent
+    LayeredLibAPresentationComponent
   ],
   imports: [
   ],
   exports: [
-    LayeredLibComponent
+    LayeredLibAPresentationComponent
   ]
 })
 export class LayeredLibModule { }
