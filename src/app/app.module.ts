@@ -29,6 +29,7 @@ import { ConditionToNotifyPriceMore700 } from './ProductsModule/ApplicationCore/
 import { IConditionToNotify } from './ProductsModule/ApplicationCore/Services.Abstractions/IConditionToNotify';
 import { ProductDetailsComponent } from './ProductsModule/UI/Components/product-details/product-details.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { LayeredLibModule } from 'LayeredLib';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     BrowserModule,
     AppRoutingModule,
     ShapesModule,
-    AbcViewchildModule
+    AbcViewchildModule,
+    LayeredLibModule
   ],
   providers: 
   [

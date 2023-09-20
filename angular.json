@@ -99,6 +99,39 @@
           }
         }
       }
+    },
+    "LayeredLib": {
+      "projectType": "library",
+      "root": "projects/layered-lib",
+      "sourceRoot": "projects/layered-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/layered-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/layered-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/layered-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/layered-lib/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
