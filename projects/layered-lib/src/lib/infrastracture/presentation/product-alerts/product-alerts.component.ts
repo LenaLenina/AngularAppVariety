@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IConditionToNotify } from '../../../core/services.abstractions/i-condition-to-notify-service';
-import { Product } from '../../../core/domain/entities/Product';
+import { Product } from '../../../core/domain/entities/product';
 
 
 @Component({

@@ -1,4 +1,4 @@
-import { Product } from "../entities/Product";
+import { Product } from "../entities/product";
 
 export abstract class IProductsRepository {
     abstract getProducts(): Product[];
