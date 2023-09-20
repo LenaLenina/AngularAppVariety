@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/app/ProductsModule/ApplicationCore/Domain/Entities/Product';
-import { IProductsRepository } from 'src/app/ProductsModule/ApplicationCore/Domain/Repositories/IProductsRepository';
+import { IProductsRepository } from '../../../core/domain/repositories/i-products-repository';
+import { Product } from '../../../core/domain/entities/Product';
 
 
 @Component({

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'src/app/ProductsModule/ApplicationCore/Domain/Entities/Product';
-import { IConditionToNotify } from 'src/app/ProductsModule/ApplicationCore/Services.Abstractions/IConditionToNotify';
+import { IConditionToNotify } from '../../../core/services.abstractions/i-condition-to-notify-service';
+import { Product } from '../../../core/domain/entities/Product';
+
 
 @Component({
   selector: 'app-product-alerts',

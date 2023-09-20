@@ -1,5 +1,5 @@
-import { IConditionToNotify as IConditionToNotify } from '../Services.Abstractions/IConditionToNotify';
-import { Product } from '../Domain/Entities/Product';
+import { IConditionToNotify } from '../services.abstractions/i-condition-to-notify-service';
+import { Product } from '../domain/entities/Product';
 
 export class ConditionToNotifyPriceMore700 implements IConditionToNotify {
 

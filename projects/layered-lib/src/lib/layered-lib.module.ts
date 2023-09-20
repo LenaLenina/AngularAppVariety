@@ -1,16 +1,28 @@
 import { NgModule } from '@angular/core';
-import { LayeredLibAPresentationComponent } from './infrastracture/presentation/layered-lib-apresentation/layered-lib-apresentation.component';
-
+import { IConditionToNotify } from './core/services.abstractions/i-condition-to-notify-service';
+import { ConditionToNotifyPriceMore700 } from './core/services/condition-to-notify-price-more-700.service';
+import { IProductsRepository } from './core/domain/repositories/i-products-repository';
+import { ProductsRepository } from './infrastracture/persistence/repositories/products-repository';
+import { LayereLibRoutingModule } from './layered-lib-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { ProductListComponent } from './infrastracture/presentation/product-list-component/product-list.component';
+import { ProductAlertsComponent } from './infrastracture/presentation/product-alerts/product-alerts.component';
+import { ProductDetailsComponent } from './infrastracture/presentation/product-details/product-details.component';
 
 
 @NgModule({
   declarations: [
-    LayeredLibAPresentationComponent
+    ProductListComponent,
+    ProductAlertsComponent,
+    ProductDetailsComponent,
   ],
   imports: [
+    BrowserModule,
+    LayereLibRoutingModule
   ],
-  exports: [
-    LayeredLibAPresentationComponent
+  providers: [
+    { provide: IConditionToNotify, useClass: ConditionToNotifyPriceMore700 },
+    { provide: IProductsRepository, useClass: ProductsRepository },
   ]
 })
 export class LayeredLibModule { }
