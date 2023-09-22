@@ -4,6 +4,7 @@ import { ProductListComponent } from './infrastracture/presentation/product-list
 import { ProductAlertsComponent } from './infrastracture/presentation/product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './infrastracture/presentation/product-details/product-details.component';
 import { RouterModule } from '@angular/router';
+import { MyPipePipe } from './infrastracture/presentation/my-pipe.pipe';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { RouterModule } from '@angular/router';
     ProductListComponent,
     ProductAlertsComponent,
     ProductDetailsComponent,
+    MyPipePipe,
   ],
   imports: [
     BrowserModule,
