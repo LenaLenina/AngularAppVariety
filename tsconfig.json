@@ -5,6 +5,9 @@
     "paths": {
       "LayeredLib": [
         "projects/layered-lib/src/public-api"
+      ],
+      "routing-tests": [
+        "projects/routing-tests/src/public-api"
       ]
     },
     "baseUrl": "./",
