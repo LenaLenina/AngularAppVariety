@@ -8,3 +8,4 @@ export * from './lib/core/domain/repositories/i-posts-reposioty';
 export * from './lib/infrastracture/persistence/repositories/posts-repository';
 export * from './lib/core/services.abstractions/i-posts-service';
 export * from './lib/core/services/posts.service';
+export * from './lib/infrastracture/presentation/error-page/error-page.component';

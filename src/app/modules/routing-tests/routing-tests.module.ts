@@ -9,6 +9,8 @@ import {
   RoutingTestsLibModule
 } from 'routing-tests';
 import { RoutingTestsComponent } from './presentation/routing-tests/routing-tests.component';
+import { AuthService } from './core/services/auth.service';
+import { AuthGuard } from './core/services/auth.guard';
 
 
 @NgModule({
@@ -20,9 +22,11 @@ import { RoutingTestsComponent } from './presentation/routing-tests/routing-test
     RoutingTestsLibModule,
   ],
   exports: [ RoutingTestsComponent ],
-  providers: [
+  providers: [ 
     { provide: IPostsService, useClass: PostsService },
     { provide: IPostsRepository, useClass: PostsRepository },
+    AuthService,
+    AuthGuard
   ]
 })
 export class RoutingTestsModule { }

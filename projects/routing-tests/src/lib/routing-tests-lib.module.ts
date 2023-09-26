@@ -6,6 +6,7 @@ import { PostComponent } from './infrastracture/presentation/post/post.component
 import { AboutExtraComponent } from './infrastracture/presentation/about-extra/about-extra.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ErrorPageComponent } from './infrastracture/presentation/error-page/error-page.component';
 
 
 @NgModule({
@@ -15,17 +16,11 @@ import { CommonModule } from '@angular/common';
     PostsComponent,
     PostComponent,
     AboutExtraComponent,
+    ErrorPageComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
-  ],
-  exports: [
-    AboutComponent,
-    HomeComponent,
-    PostsComponent,
-    PostComponent,
-    AboutExtraComponent,
   ]
 })
 export class RoutingTestsLibModule { }
