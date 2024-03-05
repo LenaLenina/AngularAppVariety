@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ICounter } from '../Services.Abstractions/ICounter';
 import { INumberEqualService } from '../../../NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService';
+import { INumberEqualService2 } from '../../../NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService2';
 
 @Injectable()
 export class NumberCounterService implements ICounter {
 
-  constructor(private _equalService: INumberEqualService) { }
+  constructor(private _equalService: INumberEqualService2) { }
 
   public count(numbers: number[]): number {
     var count = 0;
