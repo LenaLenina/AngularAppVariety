@@ -7,7 +7,7 @@ export class NumberEqualService2 extends INumberEqualService2{
 
   public isEqual(number: number): boolean {
     
-    console.log("NumberEqualService2");
+    console.log("NumberEqualService23");
 
     for (const condition of this._conditions)
       if (condition.isEqual(number) == false)
