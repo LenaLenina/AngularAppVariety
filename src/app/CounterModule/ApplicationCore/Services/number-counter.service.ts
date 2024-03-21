@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ICounter } from '../Services.Abstractions/ICounter';
 import { INumberEqualService } from '../../../NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService';
+import { INumberEqualService2 } from '../../../NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService2';
 
 @Injectable()
 export class NumberCounterService extends ICounter {

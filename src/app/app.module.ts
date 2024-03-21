@@ -16,6 +16,8 @@ import { INumberRepository } from './NumberModule/ApplicationCore/Domain/Reposit
 import { NumberRepository } from './NumberModule/Infrastracture/Persistence/number-repository';
 import { NumberComponent } from './NumberModule/UI/Components/number/number.component';
 import { NUMBER_EQUAL_CONDITIONS } from './InjectionTokens/NUMBER_EQUAL_CONDITIONS';
+import { INumberEqualService2 } from './NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService2';
+import { NumberEqualService2 } from './NumberEqualModule/ApplicationCore/Services/number-equal.service2';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { NUMBER_EQUAL_CONDITIONS } from './InjectionTokens/NUMBER_EQUAL_CONDITIO
     {provide: ICounter, useClass: NumberCounterService },
     
     {provide: INumberEqualService, useClass: NumberEqualService },
+
+    {provide: INumberEqualService2, useClass: NumberEqualService2 },
 
     { provide: NUMBER_EQUAL_CONDITIONS, useValue: [
       new NumberBeetween3And5(),
