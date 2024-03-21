@@ -18,9 +18,9 @@ export class NumberComponent {
   ngOnInit() {
 
     var arr = this._repository.getArrayOfNumbers();
+    console.log(this._counter.count(arr));
+    // const uniqueArr = this._distinctArrayService.distinct(arr); 
 
-    const uniqueArr = this._distinctArrayService.distinct(arr); 
-
-    console.log(this._counter.count(uniqueArr));
+    // console.log(this._counter.count(uniqueArr));
   }
 }

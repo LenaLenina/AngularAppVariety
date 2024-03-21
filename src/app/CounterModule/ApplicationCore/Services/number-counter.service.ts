@@ -3,16 +3,17 @@ import { ICounter } from '../Services.Abstractions/ICounter';
 import { INumberEqualService } from '../../../NumberEqualModule/ApplicationCore/Services.Abstractions/INumberEqualService';
 
 @Injectable()
-export class NumberCounterService implements ICounter {
-
-  constructor(private _equalService: INumberEqualService) { }
-
+export class NumberCounterService extends ICounter {
+  
   public count(numbers: number[]): number {
     var count = 0;
 
     for (const number of numbers)
-      if (this._equalService.isEqual(number)) 
+      if (this._equalService.isEqual(number))
+      {
         count += 1;
+        console.log(number);
+      }
 
     return count;
   }
